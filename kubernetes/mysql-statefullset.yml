@@ -35,7 +35,6 @@ spec:
           volumeMounts:
           - name: mysql
             mountPath: /var/lib/mysql
-
   volumeClaimTemplates:
   - metadata:
       name: mysql
@@ -45,7 +44,4 @@ spec:
       resources:
         requests:
           storage: 10Gi
-      storageClassName: standard
-        # Optional:
-        # storageClassName: standard
-
+      storageClassName: standard  # Must match the PV storageClassName
