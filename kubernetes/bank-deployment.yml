@@ -33,7 +33,7 @@ spec:
                key: SPRING_DATASOURCE_URL
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
-            secretkeyRef:
+            secretKeyRef:
                name: bank-secret
                key: SPRING_DATASOURCE_PASSWORD
           resources:
