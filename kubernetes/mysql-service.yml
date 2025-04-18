@@ -4,7 +4,7 @@ metadata:
   name: mysql
   namespace: bank
 spec:
-  clusterIp: None
+  clusterIP: None
   selector:
     app: bankapp
   ports:
