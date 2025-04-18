@@ -1,7 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: bank-pvc
+  name: bank-pv
   namespace: bank
 spec:
   capacity:
