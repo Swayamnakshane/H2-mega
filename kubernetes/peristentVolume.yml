@@ -10,5 +10,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: standard
-  hostsPath:
+  hostPath:
     path: '/tmp/bankapp-msql'
