@@ -6,7 +6,7 @@ metadata:
 spec:
   clusterIp: None
   selector:
-    app: sqlapp
+    app: bankapp
   ports:
   - protocol: TCP
     port: 3306 
