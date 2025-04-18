@@ -6,5 +6,5 @@ metadata:
 data:
   MYSQL_DATABASE: bankappdb
   SPRING_DATASOURCE_USERNAME: root
-  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bankappdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql-0.mysql.bank.svc.cluster.local:3306/bankappdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 
