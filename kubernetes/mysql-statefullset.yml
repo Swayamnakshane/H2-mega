@@ -4,17 +4,17 @@ metadata:
   name: mysql-statefullset
   namespace: bank
   labels:
-    app: sqlapp
+    app: bankapp
 spec:
   serviceName: mysql
   replicas: 2
   selector:
     matchLabels:
-      app: sqlapp
+      app: bankapp
   template:
     metadata:
       labels:
-        app: sqlapp
+        app: bankapp
     spec:
       containers:
         - name: sql-pod
