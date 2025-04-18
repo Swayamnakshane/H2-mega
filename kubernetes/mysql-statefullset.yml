@@ -18,46 +18,33 @@ spec:
     spec:
       containers:
         - name: sql-pod
-          image: mysql:8.0
+          image: mysql:latest
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: bank-secret
-                  key: MYSQL_ROOT_PASSWORD
-            - name: MYSQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: bank-config
-                  key: MYSQL_DATABASE
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bank-secret
+                key: MYSQL_ROOT_PASSWORD
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: bank-config
+                key: MYSQL_DATABASE
           volumeMounts:
-            - name: mysql
-              mountPath: /var/lib/mysql
-
-          # ✅ Health Checks
-          livenessProbe:
-            tcpSocket:
-              port: 3306
-            initialDelaySeconds: 30
-            periodSeconds: 10
-
-          readinessProbe:
-            tcpSocket:
-              port: 3306
-            initialDelaySeconds: 5
-            periodSeconds: 10
+          - name: mysql
+            mountPath: /var/lib/mysql
 
   volumeClaimTemplates:
-    - metadata:
-        name: mysql
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 10Gi
+  - metadata:
+      name: mysql
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
         # Optional:
         # storageClassName: standard
 
