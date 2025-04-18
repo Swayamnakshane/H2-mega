@@ -36,11 +36,5 @@ spec:
             secretKeyRef:
               name: bank-secret
               key: SPRING_DATASOURCE_PASSWORD
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512Mi"
-          requests:
-            cpu: "0.5"
-            memory: "256Mi"
+        
 
