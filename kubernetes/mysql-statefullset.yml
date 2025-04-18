@@ -7,10 +7,10 @@ metadata:
     app: sqlapp
 spec:
   serviceName: mysql
+  replicas: 2
   selector:
     matchLabels:
       app: sqlapp
-  replicas: 2
   template:
     metadata:
       labels:
@@ -21,18 +21,17 @@ spec:
         image: mysql:latest
         ports:
         - containerPort: 3306
-        environment:
+        env:  # ✅ Corrected from "environment"
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: bank-secret
               key: MYSQL_ROOT_PASSWORD
-        - name:  MYSQL_DATABASE
+        - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
               name: bank-config
-              key:  MYSQL_DATABASE
-            
+              key: MYSQL_DATABASE  # ✅ Removed extra space
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
@@ -41,8 +40,8 @@ spec:
       name: mysql
     spec:
       accessModes:
-       - ReadWriteOnce
+      - ReadWriteOnce
       resources:
         requests:
           storage: 10Gi
-
+      storageClassName: standard  # ✅ Add this if using dynamic PVs
