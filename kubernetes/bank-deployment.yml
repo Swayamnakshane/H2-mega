@@ -20,7 +20,7 @@ spec:
         image: swayamnakshane/mybank:latest
         ports:
         - containerPort: 8080
-        environment:
+        env:
         - name: SPRING_DATASOURCE_USERNAME
           valueFrom:
             configMapKeyRef:
